@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import submitAction from '../redux/actions';
+import { submitAction, getAPI } from '../redux/actions';
 
 class Login extends React.Component {
   constructor() {
@@ -12,6 +12,14 @@ class Login extends React.Component {
       password: '',
       buttonState: true,
     };
+  }
+
+  async componentDidMount() {
+    const { dispatch } = this.props;
+    const API = await getAPI();
+    delete API.USDT;
+    const keys = Object.keys(API);
+    dispatch(submitAction('RETURN_API', keys));
   }
 
   handleInput = ({ target }) => {
