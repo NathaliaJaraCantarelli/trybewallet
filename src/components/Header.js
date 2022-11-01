@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 class Header extends Component {
   render() {
     const { email, expenses } = this.props;
-    // const { valueTotal, length } = this.state;
     return (
       <>
         <h4 data-testid="email-field">{ email }</h4>
