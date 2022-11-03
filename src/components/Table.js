@@ -8,8 +8,8 @@ class Table extends Component {
     return (
       <>
         <div>Table</div>
-        <div>
-          <table>
+        <table>
+          <thead>
             <tr>
               <th>Descrição</th>
               <th>Tag</th>
@@ -21,25 +21,29 @@ class Table extends Component {
               <th>Moeda de conversão</th>
               <th>Editar/Excluir</th>
             </tr>
-            { expenses.length > 0 && (expenses.map((expense) => (
+          </thead>
+          <tbody>
+            { (expenses.map((expense) => (
               <tr key={ expense.id }>
                 <td>{ expense.description }</td>
                 <td>{ expense.tag }</td>
                 <td>{ expense.method }</td>
-                <td>{ expense.value }</td>
-                <td>{ expense.currency }</td>
-                <td>{ expense.exchangeRates[expense.currency].ask }</td>
+                <td>{ parseFloat(expense.value).toFixed(2) }</td>
+                <td>{ expense.exchangeRates[expense.currency].name }</td>
+                <td>
+                  { parseFloat(expense.exchangeRates[expense.currency].ask).toFixed(2) }
+                </td>
                 <td>
                   { (parseFloat(expense
-                    .exchangeRates[expense.currency].ask) * parseFloat(expenses[0]
+                    .exchangeRates[expense.currency].ask) * parseFloat(expense
                     .value)).toFixed(2) }
                 </td>
-                <td>BRL</td>
+                <td>Real</td>
                 <td>Editar/Excluir</td>
               </tr>
             )))}
-          </table>
-        </div>
+          </tbody>
+        </table>
       </>
     );
   }
