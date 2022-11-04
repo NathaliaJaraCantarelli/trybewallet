@@ -10,6 +10,12 @@ class Table extends Component {
     dispatch(submitAction('CHANGE_EXPENSE', data));
   };
 
+  editItem = (index) => {
+    const { expenses, dispatch } = this.props;
+    dispatch(submitAction('EDIT_EXPENSE', expenses[index].id));
+    // console.log(expenses[index].id);
+  };
+
   render() {
     const { expenses } = this.props;
     return (
@@ -47,6 +53,13 @@ class Table extends Component {
                 </td>
                 <td>Real</td>
                 <td>
+                  <button
+                    type="button"
+                    data-testid="edit-btn"
+                    onClick={ () => this.editItem(index) }
+                  >
+                    Editar
+                  </button>
                   <button
                     type="button"
                     data-testid="delete-btn"

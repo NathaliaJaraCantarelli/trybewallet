@@ -17,11 +17,18 @@ const wallet = (state = INITIAL_STATE, action) => {
     return {
       ...state,
       expenses: action.payload,
+      editor: false,
     };
   case 'SAVE_EXPENSE':
     return {
       ...state,
       expenses: [...state.expenses, action.payload],
+    };
+  case 'EDIT_EXPENSE':
+    return {
+      ...state,
+      editor: true,
+      idToEdit: action.payload,
     };
   default:
     return state;

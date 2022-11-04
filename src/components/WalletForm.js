@@ -34,13 +34,7 @@ class WalletForm extends Component {
     this.setState({ [target.name]: target.value });
   };
 
-  addExpense = async () => {
-    const { dispatch, expenses } = this.props;
-    const API = await this.returnAPI();
-    const data = this.state;
-    data.exchangeRates = API;
-    data.id = expenses.length;
-    dispatch(submitAction('SAVE_EXPENSE', data));
+  stateInitial = () => {
     this.setState({
       value: '',
       description: '',
@@ -50,8 +44,38 @@ class WalletForm extends Component {
     });
   };
 
+  editExpense = () => {
+    const { dispatch, expenses, idToEdit } = this.props;
+    const { value, description, currency,
+      method, tag } = this.state;
+    console.log(typeof idToEdit);
+    const expenseToEdit = expenses.map((expense) => {
+      if (expense.id === idToEdit) {
+        expense.value = value;
+        expense.description = description;
+        expense.currency = currency;
+        expense.method = method;
+        expense.tag = tag;
+        return expense;
+      }
+      return expense;
+    });
+    dispatch(submitAction('CHANGE_EXPENSE', expenseToEdit));
+    this.stateInitial();
+  };
+
+  addExpense = async () => {
+    const { dispatch, expenses } = this.props;
+    const API = await this.returnAPI();
+    const data = this.state;
+    data.exchangeRates = API;
+    data.id = expenses.length > 0 ? expenses[expenses.length - 1].id + 1 : 0;
+    dispatch(submitAction('SAVE_EXPENSE', data));
+    this.stateInitial();
+  };
+
   render() {
-    const { currencies } = this.props;
+    const { currencies, editor } = this.props;
     const { value, description, currency,
       method, tag } = this.state;
     return (
@@ -104,7 +128,12 @@ class WalletForm extends Component {
           <option>Transporte</option>
           <option>Saúde</option>
         </select>
-        <button type="button" onClick={ this.addExpense }>Adicionar despesa</button>
+        { editor ? (
+          <button type="button" onClick={ this.editExpense }>Editar despesa</button>)
+          : (
+            <button type="button" onClick={ this.addExpense }>
+              Adicionar despesa
+            </button>) }
       </>
     );
   }
@@ -114,11 +143,15 @@ WalletForm.propTypes = {
   dispatch: PropTypes.func.isRequired,
   currencies: PropTypes.arrayOf(PropTypes.shape).isRequired,
   expenses: PropTypes.arrayOf(PropTypes.shape).isRequired,
+  editor: PropTypes.bool.isRequired,
+  idToEdit: PropTypes.number.isRequired,
 };
 
 const mapStateToProps = ({ wallet }) => ({
   currencies: wallet.currencies,
   expenses: wallet.expenses,
+  editor: wallet.editor,
+  idToEdit: wallet.idToEdit,
 });
 
 export default connect(mapStateToProps)(WalletForm);
