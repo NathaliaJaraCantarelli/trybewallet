@@ -13,7 +13,6 @@ class Table extends Component {
   editItem = (index) => {
     const { expenses, dispatch } = this.props;
     dispatch(submitAction('EDIT_EXPENSE', expenses[index].id));
-    // console.log(expenses[index].id);
   };
 
   render() {
@@ -35,9 +34,9 @@ class Table extends Component {
               <th>Editar/Excluir</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody data-testid="tbody">
             { (expenses.map((expense, index) => (
-              <tr key={ expense.id }>
+              <tr name="tr" key={ expense.id }>
                 <td>{ expense.description }</td>
                 <td>{ expense.tag }</td>
                 <td>{ expense.method }</td>

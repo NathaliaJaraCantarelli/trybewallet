@@ -48,7 +48,6 @@ class WalletForm extends Component {
     const { dispatch, expenses, idToEdit } = this.props;
     const { value, description, currency,
       method, tag } = this.state;
-    console.log(typeof idToEdit);
     const expenseToEdit = expenses.map((expense) => {
       if (expense.id === idToEdit) {
         expense.value = value;

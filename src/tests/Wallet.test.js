@@ -95,5 +95,7 @@ describe('Testa se a tabela funciona corretamente', () => {
     expect(mercado).toBeInTheDocument();
     const buttonRemove = screen.getByTestId('delete-btn');
     expect(buttonRemove).toBeInTheDocument();
+    const buttonEdit = screen.getByTestId('edit-btn');
+    expect(buttonEdit).toBeInTheDocument();
   });
 });
