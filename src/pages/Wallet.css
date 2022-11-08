@@ -1,0 +1,10 @@
+.initial {
+  background-color: #fff;
+  border-radius: 5px;
+  width: 80vw;
+  align-items: center;
+}
+
+.wallet-form {
+  background-color: #003BE5;
+}

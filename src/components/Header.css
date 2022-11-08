@@ -1,17 +1,39 @@
-h4 {
-  text-align: right;
-  margin: 10px;
+.divHeader {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: space-around;
+  margin: 30px;
 }
-#divHeader {
-  text-align: right;
+
+.total-header, .email-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+  margin-right: 5px;
+}
+
+.email-header {
+  color: #2FC18C;
+}
+
+h4 {
+  margin-left: 5px;
+}
+
+.coin {
+  color: #003BE5;
+  width: 40px;
+  height: 40px;
 }
 
 p {
-  display: inline-block;
-  margin-right: 5px;
-  margin-top: 0px;
+  margin-left: 5px;
+  color: #003BE5;
 }
 
-#cifra {
-  margin-left: 10px;
+.logo-header {
+  width: 250px;
+  margin-top: 30px;
 }

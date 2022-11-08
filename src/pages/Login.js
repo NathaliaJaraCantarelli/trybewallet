@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { submitAction } from '../redux/actions';
 import './Login.css';
-import logo from '../images/logoB.png';
+import logo from '../images/logo.png';
 
 class Login extends React.Component {
   constructor() {
@@ -41,33 +41,31 @@ class Login extends React.Component {
   render() {
     const { email, password, buttonState } = this.state;
     return (
-      <div className="global">
-        <div className="card">
-          <img className="logo" src={ logo } alt="logo" />
-          <input
-            type="text"
-            name="email"
-            value={ email }
-            placeholder="E-mail"
-            onChange={ this.handleInput }
-            data-testid="email-input"
-            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
-            required
-          />
-          <input
-            type="text"
-            name="password"
-            value={ password }
-            placeholder="Password"
-            onChange={ this.handleInput }
-            data-testid="password-input"
-            min={ 6 }
-            required
-          />
-          <button type="submit" onClick={ this.saveEmailGlobal } disabled={ buttonState }>
-            Entrar
-          </button>
-        </div>
+      <div className="card">
+        <img className="logo" src={ logo } alt="logo" />
+        <input
+          type="email"
+          name="email"
+          value={ email }
+          placeholder="E-mail"
+          onChange={ this.handleInput }
+          data-testid="email-input"
+          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+          required
+        />
+        <input
+          type="password"
+          name="password"
+          value={ password }
+          placeholder="Password"
+          onChange={ this.handleInput }
+          data-testid="password-input"
+          min={ 6 }
+          required
+        />
+        <button type="submit" onClick={ this.saveEmailGlobal } disabled={ buttonState }>
+          Entrar
+        </button>
       </div>
     );
   }

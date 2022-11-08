@@ -2,15 +2,19 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import './Header.css';
+import logo from '../images/logo.png';
+import coin from '../images/coin.png';
+import user from '../images/user.png';
 
 class Header extends Component {
   render() {
     const { email, expenses } = this.props;
     return (
-      <>
-        <h4 data-testid="email-field">{ email }</h4>
-        <div id="divHeader">
-          <p id="cifra">R$</p>
+      <div className="divHeader">
+        <img className="logo-header" src={ logo } alt="logo" />
+        <div className="total-header">
+          <img className="coin" src={ coin } alt="coin" />
+          <p>Total de despesas: </p>
           <p data-testid="total-field">
             { expenses.length > 0 ? expenses.map((expense) => parseFloat(expense
               .value) * parseFloat(expense
@@ -22,7 +26,11 @@ class Header extends Component {
           </p>
           <p data-testid="header-currency-field">BRL</p>
         </div>
-      </>
+        <div className="email-header">
+          <img className="user" src={ user } alt="coin" />
+          <h4 data-testid="email-field">{ email }</h4>
+        </div>
+      </div>
     );
   }
 }
