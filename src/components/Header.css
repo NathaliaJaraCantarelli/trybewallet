@@ -1,0 +1,17 @@
+h4 {
+  text-align: right;
+  margin: 10px;
+}
+#divHeader {
+  text-align: right;
+}
+
+p {
+  display: inline-block;
+  margin-right: 5px;
+  margin-top: 0px;
+}
+
+#cifra {
+  margin-left: 10px;
+}

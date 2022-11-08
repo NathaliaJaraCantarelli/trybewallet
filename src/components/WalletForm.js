@@ -79,7 +79,6 @@ class WalletForm extends Component {
       method, tag } = this.state;
     return (
       <>
-        <div>WalletForm</div>
         <input
           name="value"
           value={ value }
