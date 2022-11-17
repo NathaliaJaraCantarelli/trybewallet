@@ -140,12 +140,14 @@ class WalletForm extends Component {
           </div>
         </div>
         { editor ? (
-          <div className="button-add">
-            <button type="button" onClick={ this.editExpense }>Editar despesa</button>
+          <div className="div-button-add">
+            <button type="button" className="button-add" onClick={ this.editExpense }>
+              Editar despesa
+            </button>
           </div>)
           : (
-            <div className="button-add">
-              <button type="button" onClick={ this.addExpense }>
+            <div className="div-button-add">
+              <button type="button" className="button-add" onClick={ this.addExpense }>
                 Adicionar despesa
               </button>
             </div>) }

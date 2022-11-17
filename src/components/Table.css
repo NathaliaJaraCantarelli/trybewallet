@@ -1,0 +1,39 @@
+.total-table {
+  background-color: #003be5;
+  border-radius: 0 0 10px 10px;
+  box-shadow: 4px 4px 10px rgba(54, 53, 53, 0.3);
+  color: white;
+  display: flex;
+  justify-content: space-around;
+}
+
+thead {
+  height: 50px;
+  width: 800px;
+}
+
+th , td {
+  font-size: 90%;
+  padding: 1.6vh;
+  text-align: center;
+  width: 6vw;
+}
+
+td {
+  border: 0;
+  border-top: 1px solid #2fc18c;
+  color: #2fc18c;
+}
+
+.btn-edit-remove {
+  background-color: #003be5;
+  border: none;
+}
+
+.img-remove {
+  width: 17px;
+}
+
+.img-edit {
+  width: 24px;
+}

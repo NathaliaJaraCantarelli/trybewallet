@@ -1,21 +1,21 @@
 .divHeader {
-  display: flex;
-  align-items: center;
   align-content: center;
+  align-items: center;
+  display: flex;
   justify-content: space-around;
   margin: 30px;
 }
 
-.total-header, .email-header {
-  display: flex;
+.total-header , .email-header {
   align-items: center;
+  display: flex;
   justify-content: center;
-  margin-top: 30px;
   margin-right: 5px;
+  margin-top: 30px;
 }
 
 .email-header {
-  color: #2FC18C;
+  color: #2fc18c;
 }
 
 h4 {
@@ -23,17 +23,17 @@ h4 {
 }
 
 .coin {
-  color: #003BE5;
-  width: 40px;
+  color: #003be5;
   height: 40px;
+  width: 40px;
 }
 
 p {
+  color: #003be5;
   margin-left: 5px;
-  color: #003BE5;
 }
 
 .logo-header {
-  width: 250px;
   margin-top: 30px;
+  width: 250px;
 }

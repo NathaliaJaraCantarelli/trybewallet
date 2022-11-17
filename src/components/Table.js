@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { submitAction } from '../redux/actions';
+import edit from '../images/edit.png';
+import remove from '../images/remove.png';
+import './Table.css';
 
 class Table extends Component {
   removeItem = (index) => {
@@ -18,8 +21,7 @@ class Table extends Component {
   render() {
     const { expenses } = this.props;
     return (
-      <>
-        <div>Table</div>
+      <div className="total-table">
         <table>
           <thead>
             <tr>
@@ -54,24 +56,26 @@ class Table extends Component {
                 <td>
                   <button
                     type="button"
+                    className="btn-edit-remove"
                     data-testid="edit-btn"
                     onClick={ () => this.editItem(index) }
                   >
-                    Editar
+                    <img src={ edit } alt="Editar" className="img-edit" />
                   </button>
                   <button
                     type="button"
+                    className="btn-edit-remove"
                     data-testid="delete-btn"
                     onClick={ () => this.removeItem(index) }
                   >
-                    Excluir
+                    <img src={ remove } alt="Excluir" className="img-remove" />
                   </button>
                 </td>
               </tr>
             )))}
           </tbody>
         </table>
-      </>
+      </div>
     );
   }
 }

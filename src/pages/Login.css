@@ -1,7 +1,7 @@
 body {
   align-items: center;
-  background-image: url('../images/background.png');
   background-color: #027e50de;
+  background-image: url('../images/background.png');
   background-size: cover;
   display: flex;
   height: 100vh;
@@ -9,7 +9,7 @@ body {
 }
 
 .card {
-  background-color: #ffffff;
+  background-color: white;
   border-radius: 5px;
   box-shadow: 4px 4px 10px rgba(54, 53, 53, 0.3);
   display: flex;
@@ -20,27 +20,28 @@ body {
   width: 30vw;
 }
 
- .logo {
+.logo {
   align-self: center;
   margin-bottom: 20px;
   width: 80%;
 }
 
-input, button {
-  border: 1px solid #003BE5;
+input , .button-login {
+  border: 1px solid be;
   border-radius: 5px;
   height: 30px;
 }
 
 input::placeholder {
-  color: #003BE5;
+  color: #003be5;
   text-align: center;
 }
 
-button {
-  background-color: #003BE5;
-  color: #ffffff;
+.button-login {
+  background-color: #003be5;
+  color: white;
 }
+
 @media only screen and ( max-width : 1000px ) {
 
   .card {

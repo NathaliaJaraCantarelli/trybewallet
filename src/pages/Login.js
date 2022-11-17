@@ -63,7 +63,12 @@ class Login extends React.Component {
           min={ 6 }
           required
         />
-        <button type="submit" onClick={ this.saveEmailGlobal } disabled={ buttonState }>
+        <button
+          type="submit"
+          className="button-login"
+          onClick={ this.saveEmailGlobal }
+          disabled={ buttonState }
+        >
           Entrar
         </button>
       </div>
