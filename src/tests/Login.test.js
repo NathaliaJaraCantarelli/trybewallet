@@ -12,13 +12,13 @@ describe('Testa se os componentes são renderizados na tela inicial', () => {
     renderWithRedux(<Login />);
     const emailInput = screen.getByTestId(emailID);
     expect(emailInput).toBeInTheDocument();
-    expect(emailInput.type).toBe('text');
+    expect(emailInput.type).toBe('email');
   });
   test('Se existe um input de senha', () => {
     renderWithRedux(<Login />);
     const passwordInput = screen.getByTestId(passwordID);
     expect(passwordInput).toBeInTheDocument();
-    expect(passwordInput.type).toBe('text');
+    expect(passwordInput.type).toBe('password');
     expect(passwordInput.min).toBe('6');
   });
   test('Se existe o botão de entrada e funciona de forma correta', () => {

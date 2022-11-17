@@ -59,8 +59,8 @@ describe('Testa se aparece a tabela', () => {
     renderWithRedux(<Wallet />);
     const table = screen.getByRole('table');
     expect(table).toBeInTheDocument();
-    const description = screen.getByText(/Descrição/i);
-    expect(description).toBeInTheDocument();
+    const tag = screen.getByText(/Tag/i);
+    expect(tag).toBeInTheDocument();
   });
 });
 

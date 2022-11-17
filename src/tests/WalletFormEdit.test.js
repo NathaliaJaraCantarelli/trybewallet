@@ -27,8 +27,9 @@ describe('Testa se a tabela funciona corretamente', () => {
     const academia = await screen.findByText(/Academia/i);
     expect(academia).toBeInTheDocument();
 
-    const buttonEdit = await screen.findAllByText('Editar');
-    userEvent.click(buttonEdit[0]);
+    const buttonEdit = await screen.findAllByRole('button');
+    console.log(buttonEdit.length);
+    userEvent.click(buttonEdit[1]);
 
     userEvent.type(valueInput, '150');
     userEvent.type(descriptionInput, 'Restaurante');
